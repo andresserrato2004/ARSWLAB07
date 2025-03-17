@@ -1,0 +1,15 @@
+C:\Users\andre\OneDrive\Documentos\uni\8vo\arsw\labs\ARSWLAB07\src\main\java\edu\eci\arsw\blueprintsapi\BlueprintsAPIApplication.java
+C:\Users\andre\OneDrive\Documentos\uni\8vo\arsw\labs\ARSWLAB07\src\main\java\edu\eci\arsw\blueprints\filters\SubsamplingFilter.java
+C:\Users\andre\OneDrive\Documentos\uni\8vo\arsw\labs\ARSWLAB07\src\main\java\edu\eci\arsw\blueprints\services\BlueprintsServices.java
+C:\Users\andre\OneDrive\Documentos\uni\8vo\arsw\labs\ARSWLAB07\src\main\java\edu\eci\arsw\blueprints\controllers\BlueprintAPIController.java
+C:\Users\andre\OneDrive\Documentos\uni\8vo\arsw\labs\ARSWLAB07\src\main\java\edu\eci\arsw\blueprints\persistence\BlueprintsPersistence.java
+C:\Users\andre\OneDrive\Documentos\uni\8vo\arsw\labs\ARSWLAB07\src\main\java\edu\eci\arsw\blueprints\persistence\impl\Tuple.java
+C:\Users\andre\OneDrive\Documentos\uni\8vo\arsw\labs\ARSWLAB07\src\main\java\edu\eci\arsw\blueprints\controllers\ResourceNotFoundException.java
+C:\Users\andre\OneDrive\Documentos\uni\8vo\arsw\labs\ARSWLAB07\src\main\java\edu\eci\arsw\blueprints\persistence\BlueprintNotFoundException.java
+C:\Users\andre\OneDrive\Documentos\uni\8vo\arsw\labs\ARSWLAB07\src\main\java\edu\eci\arsw\blueprints\persistence\impl\AnotherBlueprintsPersistence.java
+C:\Users\andre\OneDrive\Documentos\uni\8vo\arsw\labs\ARSWLAB07\src\main\java\edu\eci\arsw\blueprints\model\Point.java
+C:\Users\andre\OneDrive\Documentos\uni\8vo\arsw\labs\ARSWLAB07\src\main\java\edu\eci\arsw\blueprints\filters\RedundancyFilter.java
+C:\Users\andre\OneDrive\Documentos\uni\8vo\arsw\labs\ARSWLAB07\src\main\java\edu\eci\arsw\blueprints\persistence\BlueprintPersistenceException.java
+C:\Users\andre\OneDrive\Documentos\uni\8vo\arsw\labs\ARSWLAB07\src\main\java\edu\eci\arsw\blueprints\filters\BlueprintFilter.java
+C:\Users\andre\OneDrive\Documentos\uni\8vo\arsw\labs\ARSWLAB07\src\main\java\edu\eci\arsw\blueprints\model\Blueprint.java
+C:\Users\andre\OneDrive\Documentos\uni\8vo\arsw\labs\ARSWLAB07\src\main\java\edu\eci\arsw\blueprints\persistence\impl\InMemoryBlueprintPersistence.java
