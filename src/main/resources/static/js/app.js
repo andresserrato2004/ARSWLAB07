@@ -46,6 +46,7 @@ const app = (() => {
         });
     };
 
+
     // Función para dibujar un plano específico
     const getAndDrawBlueprint = (author, blueprintName) => {
         api.getBlueprintsByNameAndAuthor(author, blueprintName, (blueprint) => {
@@ -183,6 +184,7 @@ const app = (() => {
 			api.updateBlueprint(currentBlueprint, function(updatedBlueprint) {
 				try {
 					if (!updatedBlueprint) {
+                        updateBlueprints(authorName);
 						api.getBlueprintsByAuthor(authorName, function(updatedBlueprints) {
 							if (updatedBlueprints) {
 								blueprints = updatedBlueprints.map((bp) => ({
@@ -208,7 +210,34 @@ const app = (() => {
 			alert("Critical error saving blueprint: " + e.message);
 		}
 	};
-		
+
+
+
+    const deleteBlueprint = (authorName, blueprintName) => {
+        if(confirm(`Are you sure you want to delete ${blueprintName}?`)) {
+            api.deleteBlueprint(authorName, blueprintName, (success) => {
+                if(success) {
+                    alert("Blueprint deleted succesfully");
+                    updateBlueprints(authorName);
+                    currentBlueprint = null;
+                    clearCanvas();
+                    $("#currentBlueprintName").text("None");
+                } else {
+                    alert("Error deleting blueprint");
+                }
+            });
+        }
+    };
+
+    const clearCanvas = () => {
+        const canvas = document.getElementById("blueprintCanvas");
+        const ctx = canvas.getContext("2d");
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        canvas.onmousedown = null;
+        canvas.onmousemove = null;
+        canvas.onmouseup = null;
+
+    };
 
     return {
         setAuthor: (author) => {
@@ -224,6 +253,36 @@ const app = (() => {
 			$("#saveUpdateBtn").click(() => {
         		saveAndUpdateBlueprint();
     		});
+
+            $("#createBlueprintBtn").click(() => {
+                const blueprintName = prompt("Enter new blueprint name: ");
+                if (!blueprintName) {
+                    alert("Blueprint name cannot be empty");
+                    return;
+                }
+
+                const newBlueprint = {
+                    author: authorName,
+                    name: blueprintName,
+                    points: [],
+
+                }
+
+                api.createBlueprint(newBlueprint, (success) => {
+                    if(success){
+                        alert("Blueprint Created Successfully");
+                        updateBlueprints(authorName);
+
+                    } else{
+                        alert("Error Creating Blueprint");
+                    }
+                });
+            });
+
+            $("#deleteBlueprintBtn").click(function () {
+                deleteBlueprint(authorName, currentBlueprint.name);
+            });
+
 
             initCanvasEvents();
         },

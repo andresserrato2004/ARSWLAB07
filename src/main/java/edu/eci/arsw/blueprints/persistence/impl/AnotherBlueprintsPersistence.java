@@ -100,4 +100,15 @@ public class AnotherBlueprintsPersistence implements BlueprintsPersistence {
             throw new BlueprintNotFoundException("There is no blueprint with the given author and name");
         }
     }
+
+    @Override
+    public void deleteBlueprint(String author, String name) throws BlueprintNotFoundException {
+        Tuple<String, String> key = new Tuple<>(author, name);
+
+        if(!blueprints.containsKey(key)){
+            throw new BlueprintNotFoundException("Blueprint not found: " + name);
+        }
+
+        blueprints.remove(key);
+    }
 }

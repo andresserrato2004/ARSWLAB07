@@ -70,7 +70,9 @@ const apiclient = (() => {
 				data: JSON.stringify(blueprint),
 				success: () => {
 					console.log("Blueprint created successfully");
-					if (callback) callback(true);
+					apiclient.getBlueprintsByAuthor(blueprint.author, (data) => {
+						if (callback) callback(true, data);
+					});
 				},
 				error: (xhr, status, error) => {
 					console.error("Error creating blueprint:", error);
@@ -121,6 +123,23 @@ const apiclient = (() => {
 					alert(`Error loading blueprints: ${xhr.responseText}`);
 				},
 			});
+		},
+
+		deleteBlueprint: (authorName, bpName, callback) => {
+			$.ajax({
+				url: `${apiBaseURL}/${authorName}/${bpName}`,
+				type: "DELETE",
+				contentType: "application/json",
+				success: () => {
+					console.log("Blueprint deleted successfully");
+					if(callback) callback(true);
+				},
+				error: (xhr, status, error) => {
+					console.error("Error deleting blueprint:", error);
+					if(callback) callback(false, xhr.responseText);
+				},
+			});
+
 		},
 	};
 })();

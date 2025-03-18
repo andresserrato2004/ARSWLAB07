@@ -12,12 +12,7 @@ import java.util.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import edu.eci.arsw.blueprints.model.Blueprint;
 import edu.eci.arsw.blueprints.persistence.BlueprintNotFoundException;
@@ -102,7 +97,15 @@ public class BlueprintAPIController {
         }
 
     }
-    
-    
+
+    @DeleteMapping("/{author}/{name}")
+    public ResponseEntity<?> deleteBlueprint(@PathVariable String author, @PathVariable String name){
+        try{
+            bpServices.deleteBlueprint(author, name);
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        }catch (BlueprintNotFoundException e) {
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_FOUND);
+        }
+    }
 }
 
